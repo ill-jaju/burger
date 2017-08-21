@@ -23,7 +23,7 @@ function objToSql(ob) { // helper function for SQL syntax given during class
 }
 
 var orm = { //functions
-    selectAll: function(tableInput, cb) {
+    all: function(tableInput, cb) {
         var queryString = "SELECT * FROM " + tableInput + ";";
         connection.query(queryString, function(err, result) {
             if (err) {
@@ -32,7 +32,7 @@ var orm = { //functions
             cb(result);
         });
     },
-    insertOne: function(table, cols, vals, cb) {
+    create: function(table, cols, vals, cb) {
         var queryString = "INSERT INTO " + table + " (" + cols.toString();
         console.log(cols.toString());
         console.log(vals.length);
@@ -46,7 +46,7 @@ var orm = { //functions
             cb(result);
         });
     },
-    updateOne: function(table, objColVals, condition, cb) {
+    update: function(table, objColVals, condition, cb) {
         var queryString = "UPDATE " + table;
 
         queryString += " SET ";

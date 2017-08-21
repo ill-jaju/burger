@@ -1,6 +1,6 @@
 var orm = require("../config/orm.js"); //imports orm to create functions that will interact with databse
 
-var burger = { //orm calls
+var burger = {
   all: function(cb) {
     orm.all("burgers", function(res) {
       cb(res);
@@ -17,11 +17,11 @@ var burger = { //orm calls
       cb(res);
     });
   },
-  delete: function(condition, cb) {
-    orm.delete("burgers", condition, function(res) {
-      cb(res);
-    });
-  }
+  // delete: function(condition, cb) {
+  //   orm.delete("burgers", condition, function(res) {
+  //     cb(res);
+  //   });
+  // }
 };
 
 module.exports = burger; //exports function for controllers

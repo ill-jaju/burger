@@ -1,0 +1,51 @@
+<div class="container">
+
+    <div class="row">
+        <h1 class="text-center">noms</h1>
+    </div>
+
+    <div class="row">
+        {{!ordered burger display and devour it button}}
+        <div class="col-md-4">
+            <p class="text-center"><strong>click to noms</strong></p>
+            <ul class="list-group">
+                {{#each burgers}} {{#unless this.devoured}}
+                <li class="list-group-item">
+                    {{this.id}} {{this.burger_name}}
+                </li>
+                <form action="/{{this.id}}?_method=PUT" method="POST">
+                    <button type="submit" class="devour btn btn-primary">CHOMPS!</button>
+                </form>
+                {{/unless}} {{/each}}
+            </ul>
+        </div>
+
+        {{!row for burger input}}
+        <div class="col-md-4">
+            <p class="text-center"><strong>whatcha want to noms!</strong></p>
+            <form class="create-update-form" action="/" method="POST">
+                <div class="form-group text-center">
+                    <textarea class="form-control" name="burger_name" rows="3" placeholder="nom nom nom"></textarea>
+                    <button type="submit" class="btn btn-primary">click here!</button>
+                </div>
+            </form>
+        </div>
+
+        {{!display devoured burgers}}
+        <div class="col-md-4">
+            <table class="table table-bordered">
+                <tbody>
+                    <p class="text-center"><strong>you ate these</strong></p>
+                    {{#each burgers}} {{#if this.devoured}}
+                    <tr>
+                        <td>
+                            <p>{{this.id}} {{this.burger_name}}</p>
+                        </td>
+                    </tr>
+                    {{/if}} {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

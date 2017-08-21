@@ -20,6 +20,6 @@ var routes = require("./controllers/burgers_controller.js"); // import routes an
 
 app.use("/", routes);
 
-app.listen(PORT, function(){ //makes sure app is working
-    console.log("app on " + PORT);
+app.listen(port, function(){ //makes sure app is working
+    console.log("app on " + port);
 });

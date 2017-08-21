@@ -1,4 +1,4 @@
-var cat = require("..models/cat.js"); //imports model to use its databae functions
+var burger = require("..models/burger.js"); //imports model to use its databae functions
 var express = require("express"); //imports express
 var router = express.Router();
 
